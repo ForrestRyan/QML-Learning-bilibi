@@ -8,10 +8,43 @@
  *************************************************************************/
 
 import QtQuick 2.0
+import QtQuick.Controls 2.0
 
 Rectangle {
     width: 400; height: 400
     color: "gray"
+
+    Timer{
+        id: timer
+    }
+
+    function delay(delayTime, cb) {
+        timer.interval = delayTime
+        timer.repeat = false
+        timer.triggered.connect(cb)
+        timer.start()
+    }
+
+    function callBack()
+    {
+        console.log("before: txt.visible: ", txt.visible)
+        txt.visible = txt.visible ? false : true;
+        console.log("after: txt.visible: ", txt.visible)
+    }
+
+    Text {
+        id: txt
+        x: 100
+        text: qsTr("hello world")
+        visible: false
+    }
+
+    Button {
+        text: "click me"
+        onDoubleClicked:  {
+            delay(1000,callBack)
+        }
+    }
 
     Rectangle {
         x: 50; y: 50

@@ -41,11 +41,11 @@ Item {
             top: parent.top
             left: parent.left
             right: parent.horizontalCenter
-            rightMargin: 5
+            rightMargin: 50
             bottom: parent.bottom
         }
 
-        spacing: 2
+        spacing: 20
 
         model: _cppModel
 
@@ -56,7 +56,7 @@ Item {
         anchors {
             top: parent.top
             left: parent.horizontalCenter
-            leftMargin: 5
+            leftMargin: 50
             right: parent.right
             bottom: parent.bottom
         }
